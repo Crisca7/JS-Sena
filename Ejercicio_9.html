@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas del Alumno</title>
+</head>
+<body>
+
+    <h2>Ingrese las Notas del Alumno</h2>
+
+    <form id="notasForm">
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1" min="0" max="10" required><br>
+
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2" min="0" max="10" required><br>
+
+        <label for="nota3">Nota 3:</label>
+        <input type="number" id="nota3" min="0" max="10" required><br>
+
+        <label for="nota4">Nota 4:</label>
+        <input type="number" id="nota4" min="0" max="10" required><br>
+
+        <label for="nota5">Nota 5:</label>
+        <input type="number" id="nota5" min="0" max="10" required><br>
+
+        <button type="button" onclick="calcularNotas()">Calcular</button>
+    </form>
+
+    <h2>Resultados:</h2>
+    <p id="notasResultado"></p>
+
+    <script>
+        function calcularNotas() {
+            // Obtener las notas ingresadas
+            var nota1 = parseFloat(document.getElementById("nota1").value);
+            var nota2 = parseFloat(document.getElementById("nota2").value);
+            var nota3 = parseFloat(document.getElementById("nota3").value);
+            var nota4 = parseFloat(document.getElementById("nota4").value);
+            var nota5 = parseFloat(document.getElementById("nota5").value);
+
+            // Validar que las notas estén en el rango de 0 a 10
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4) || isNaN(nota5)) {
+                alert("Ingrese notas válidas entre 0 y 10.");
+                return;
+            }
+
+            // Crear un vector con las notas
+            var notas = [nota1, nota2, nota3, nota4, nota5];
+
+            // Calcular la nota promedio
+            var promedio = (nota1 + nota2 + nota3 + nota4 + nota5) / 5;
+
+            // Encontrar la nota más alta y la nota más baja
+            var notaMaxima = Math.max(...notas);
+            var notaMinima = Math.min(...notas);
+
+            // Mostrar los resultados
+            var resultadoTexto = "Notas: " + notas.join(", ") + "<br>";
+            resultadoTexto += "Nota Promedio: " + promedio.toFixed(2) + "<br>";
+            resultadoTexto += "Nota Más Alta: " + notaMaxima + "<br>";
+            resultadoTexto += "Nota Más Baja: " + notaMinima;
+
+            document.getElementById("notasResultado").innerHTML = resultadoTexto;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 1</title>
+</head>
+<body>
+
+  <h1>Ejercicio 1</h1>
+
+  <script>
+    function calcularResultado() {
+      // Obtener los valores de los input
+      var num1 = parseFloat(document.getElementById("numero1").value);
+      var num2 = parseFloat(document.getElementById("numero2").value);
+      var num3 = parseFloat(document.getElementById("numero3").value);
+
+      // Verificar si el primer número es positivo
+      if (num1 > 0) {
+        // Calcular el producto de los otros dos números
+        var resultado = num2 * num3;
+        mostrarResultado("El resultado del producto es: " + resultado);
+      } else {
+        // Calcular la suma de los otros dos números
+        var resultado = num2 + num3;
+        mostrarResultado("El resultado de la suma es: " + resultado);
+      }
+    }
+
+    function mostrarResultado(mensaje) {
+      // Mostrar el resultado en un elemento HTML
+      document.getElementById("resultado").innerHTML = mensaje;
+    }
+  </script>
+
+  <label for="numero1">Número 1:</label>
+  <input type="text" id="numero1" placeholder="Ingrese un número">
+
+  <label for="numero2">Número 2:</label>
+  <input type="text" id="numero2" placeholder="Ingrese un número">
+
+  <label for="numero3">Número 3:</label>
+  <input type="text" id="numero3" placeholder="Ingrese un número">
+
+  <button onclick="calcularResultado()">Calcular</button>
+
+  <h2>Resultado:</h2>
+  <div id="resultado"></div>
+
+</body>
+</html>

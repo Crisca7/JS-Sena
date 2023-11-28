@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Hora</title>
+</head>
+<body>
+
+  <h1>Conversor de Hora</h1>
+
+  <label for="horaInput">Hora (formato 24 horas):</label>
+  <input type="text" id="horaInput" placeholder="Ingrese la hora en formato 24 horas">
+
+  <button onclick="convertirHora()">Convertir</button>
+
+  <h2>Resultado:</h2>
+  <div id="resultado"></div>
+
+  <script>
+    function convertirHora() {
+      // Obtener la hora en formato de 24 horas desde el input
+      var hora24 = parseInt(document.getElementById("horaInput").value);
+
+      // Verificar si la entrada es un número válido
+      if (!isNaN(hora24) && hora24 >= 0 && hora24 <= 23) {
+        // Convertir a notación de 12 horas
+        var hora12 = (hora24 % 12 === 0) ? 12 : hora24 % 12;
+        var amPm = (hora24 < 12) ? "a.m." : "p.m.";
+
+        // Mostrar el resultado
+        document.getElementById("resultado").innerHTML = "La hora en formato de 12 horas es: " + hora12 + " " + amPm;
+      } else {
+        // Mostrar mensaje de error si la entrada no es válida
+        document.getElementById("resultado").innerHTML = "Por favor, ingrese una hora válida en formato de 24 horas.";
+      }
+    }
+  </script>
+
+</body>
+</html>
